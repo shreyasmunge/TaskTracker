@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        body{
+            
+            font-family: "Reddit Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            padding-top: 40px;
+            font-size: large;
+
+            
+        }
+        a{
+            color: white;
+            background-color: rgb(55, 54, 54);
+            border: 2px solid  ;
+            border-radius: 6px;
+            text-decoration: none;
+            padding: 0px 6px;
+            text-transform: uppercase;
+            width: 100px;
+            height: 50px;
+        }
+        td{
+            padding-top: 10px;
+        }
+        .search{
+            padding-top: 10px;
+        }
+        .container{
+            max-width: 650px;
+            margin: auto;
+           
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            
+            
+        }
+        hr{
+            color: black;
+        }
+        .header-bar{
+            display: flex;
+            justify-content: space-between;
+            color:black;
+            padding: 10px;
+            border-radius: 2px;
+           
+            padding-bottom: 15px;
+        }
+        input{
+            width: 200px;
+            height: 20px;
+        }
+        .button{
+            width: 100px;
+            height: 25px;
+            font-size: 17px;
+            background-color: rgb(133, 17, 243);
+            color: white;
+            text-transform: uppercase;
+            border:  2px solid black;
+            border-radius: 6px;
+        }
+        i{
+            color: red;
+        }
+        .tasks-name{
+            color: black;
+            font-size: 19px;
+            padding-right: 40px;
+        }
+       
+    
+    
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content%}
+
+        {%endblock%}
+    </div>
+    
+</body>
+</html>

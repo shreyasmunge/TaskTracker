@@ -1,0 +1,62 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+    <div class="header-bar">
+        <div>
+            <h1>Welcome {{request.user}}</h1>
+            <h3 style="margin: 0;">You have <i>{{count}} incomplete</i> tasks</h3>
+        </div>
+        
+    </div>
+    
+    <hr>
+    <h1>My List</h1>
+    <a href="{%url 'task-create'%}" class="addTask">Add Task</a>
+ <form  method="GET" class="search">
+        <input type="text" name="search-area" value="{{search_input}}" placeholder="Search a Task here">
+       <input type="submit" value="Search" class="button" > 
+    </form>
+    
+    
+
+
+
+
+
+    <table>
+        <tr>
+            <th>Items</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for task in tasks%}
+        <tr>
+            {% if task.complete %}
+            <td class="tasks-name">{{task.title }} &#9989</td>
+            <td><a href="{%url 'task-update' task.id%}">Update</a></td>
+            <td><a href="{%url 'task-delete' task.id%}">Delete</a></td>
+            {% else %}
+            <td class="tasks-name">{{task.title}}</td>
+            <td><a href="{%url 'task-update' task.id%}">Update</a></td>
+            <td><a href="{%url 'task-delete' task.id%}">Delete</a></td>
+        </tr>
+        {% endif %}
+        
+    {% empty %}
+        <h3>No items</h3>
+   
+    {%endfor %}
+    </table>
+    <hr>
+    {% if request.user.is_authenticated%}
+    <a href="{%url 'logout'%}" class="logout-button">Logout</a>
+    {% else%}
+    <a href="{%url 'login'%}" >Login</a>
+    {%endif%}
+    
+
+
+
+{% endblock %}   
+
