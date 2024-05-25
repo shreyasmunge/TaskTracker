@@ -1,1 +1,1 @@
-web: gunicorn todo_app.wsgi --log-file -
+echo "web: gunicorn myproject.wsgi" > Procfile
