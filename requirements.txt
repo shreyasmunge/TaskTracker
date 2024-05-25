@@ -12,6 +12,7 @@ et-xmlfile==1.1.0
 filelock==3.13.4
 fonttools==4.49.0
 future @ file:///AppleInternal/Library/BuildRoots/9dd5efe2-7fad-11ee-b588-aa530c46a9ea/Library/Caches/com.apple.xbs/Sources/python3/future-0.18.2-py3-none-any.whl
+gunicorn==22.0.0
 idna==3.7
 importlib_resources==6.1.2
 kiwisolver==1.4.5
