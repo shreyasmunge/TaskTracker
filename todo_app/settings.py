@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*-izq8^af!z(fla20fhl@@re)@ny^xcz6g#t2h*2l1#um++933'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web-production-c84b.up.railway.app']
 
 
 # Application definition
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'todo_app.urls'
@@ -76,8 +78,12 @@ WSGI_APPLICATION = 'todo_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'postgresql://postgres:TnNAreRVozkaryogfgEueSBKYFHjcuqC@viaduct.proxy.rlwy.net:35953/railway ',
+        'NAME': os.getenv('railway'), 
+        'USER': os.getenv('postgres'),  
+        'PASSWORD': os.getenv('TnNAreRVozkaryogfgEueSBKYFHjcuqC'),  
+        'HOST': os.getenv('postgres.railway.internal'),  
+        'PORT': os.getenv('35953'), 
     }
 }
 
@@ -123,3 +129,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
