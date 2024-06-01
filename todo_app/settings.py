@@ -12,7 +12,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['localhost','127,0,0,1','tasktracker.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://tasktracker.up.railway.app']
+
+
+if ENVIRONMENT == 'production':
+    CSRF_COOKIE_SECURE = True
+else:
+    CSRF_COOKIE_SECURE = False
 
 INSTALLED_APPS = [
     'django.contrib.admin',
