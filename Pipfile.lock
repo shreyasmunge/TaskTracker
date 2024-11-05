@@ -48,6 +48,10 @@
             ],
             "markers": "python_version < '3.11'",
             "version": "==4.12.0"
+        },
+        "dj-database-url": {
+            "version": "*",
+            "index": "pypi"
         }
     },
     "develop": {}
