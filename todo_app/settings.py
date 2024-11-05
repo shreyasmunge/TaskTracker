@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = ['localhost','127,0,0,1','tasktracker.up.railway.app']
+ALLOWED_HOSTS = ['localhost','127,0,0,1','tasktracker.up.railway.app','.vercel.app',]
 CSRF_TRUSTED_ORIGINS = ['https://tasktracker.up.railway.app']
 
 
